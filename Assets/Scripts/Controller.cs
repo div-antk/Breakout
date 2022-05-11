@@ -11,8 +11,11 @@ public class Controller : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-       
+    void Update() {
+       if (Input.GetKey(KeyCode.LeftArrow)) {
+           transform.position += transform.foward * 0.1f;
+       } else if (Input.GetKey(KeyCode.RightArrow)) {
+           transform.position -= transform.foward * 0.1f;
+       }
     }
 }
