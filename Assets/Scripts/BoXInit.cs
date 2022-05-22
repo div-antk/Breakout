@@ -10,6 +10,10 @@ public class BoXInit : MonoBehaviour {
 
     // Startよりも早く呼ばれるイベント変数
     void Awake() {
+        // GameObject型変数masterObjの中にMasterオブジェクトを
+        // 現在実体化しているオブジェクトから”Master”という名前がつくオブジェクトを探して格納
+        GameObject masterObj = GameObject.Find("Master");
+
         // 横8*縦5にBoxのPrefabをインスタンス化
         for (int x = 0; x < 8; x++) {
             for (int y = 0; y < 5; y++) {
@@ -17,6 +21,9 @@ public class BoXInit : MonoBehaviour {
                 GameObject g = Instantiate(boxObjPrefab, boxesObj.transform);
                 // 変数"g"にインスタンス化して入れられたゲームオブジェクトのtransform.positionの値をfor文を使って個々の座標に移動させる
                 g.transform.position = new Vector3((2f + (1f * y)), 0.4f, (-4.2f + (1.2f * x)));
+
+                // インスタンス化したboxオブジェクト内のDestroyerコンポーネント（スクリプト）のmasterObとという変数にMasterオブジェクトを格納
+                g.GetComponent<Destroyer>().masterObj = masterObj;
             }
         }
     }
