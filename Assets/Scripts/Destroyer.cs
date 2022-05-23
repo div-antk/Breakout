@@ -5,7 +5,7 @@ using UnityEngine;
 public class Destroyer : MonoBehaviour
 {
     // Masterオブジェクトが格納される変数
-    public gameObject masterObj;
+    public GameObject masterObj;
 
     // Start is called before the first frame update
     void Start()
