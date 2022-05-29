@@ -19,11 +19,14 @@ public class GameMaster : MonoBehaviour
     {
         nowTime += Time.deltaTime;
         if (boxNum <= 0) {
-            GameOver();
+            // 秒数をString型にキャスト
+            GameOver(nowTime.ToString("F0") + "秒でクリアできた！");
         }
     }
 
-    public void GameOver() {
+    public void GameOver(string resultMessage) {
+        // 受け取った引数をstatic変数に格納
+        DataSender.resultMessage = resultMessage;
         // Result というシーンに移動する
         SceneManager.LoadScene("Result");
     }
