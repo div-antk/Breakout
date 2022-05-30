@@ -18,6 +18,7 @@ public class KabeOut : MonoBehaviour
 
     // このスクリプトがアタッチされたオブジェクト当たったら、GameOverメソッドを呼ぶ
     private void OnCollisionEnter(Collision collision) {
-        GameObject.Find("Master").GetComponent<GameMaster>().GameOver();
+
+        GameObject.Find("Master").GetComponent<GameMaster>().GameOver("完");
     }
 }
